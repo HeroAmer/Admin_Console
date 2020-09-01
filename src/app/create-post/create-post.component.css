@@ -1,55 +1,69 @@
+.pozadina {
+  background: url('https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100vw;
+}
 
-.create-post{
-  width:300px;
-  margin:auto;
-  margin-top: 100px;
+.create-post {
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  /* margin: auto; */
+  /* margin-top: 100px; */
   background-color: rgb(241, 238, 238);
-  box-shadow: 10px 52px 200px rgb(182, 194, 186);
+  /* box-shadow: 10px 52px 200px rgb(182, 194, 186); */
 
 }
 
-.mat-form-field{
+.mat-form-field {
   width: 100%;
-  padding:10px 0px;
+  padding: 10px 0px;
 }
 
-input[type="file"]{
+input[type="file"] {
   visibility: hidden;
 }
-.dugme{
-  margin:0px 12px;
+
+.dugme {
+  margin: 0px 12px;
   background-color: rgb(141, 190, 67);
 }
+
 .example-spacer {
   flex: 1 1 auto;
 }
 
 
-.mat-toolbar{
+.mat-toolbar {
   background-color: transparent;
-  color:white
+  color: white
 }
-h1{
+
+h1 {
   font-size: 25px;
 }
 
-.example-icon{
-  margin:10px 15px;
+.example-icon {
+  margin: 10px 15px;
 }
 
-.toolbar-button{
+.toolbar-button {
   background-color: transparent;
-  color:white;
+  color: white;
   border: 1px solid white;
   font-size: 15px;
-  padding:10px;
+  padding: 10px;
 }
 
-.imagePreviewDiv{
+.imagePreviewDiv {
   height: 10rem;
-  margin:10px;
+  margin: 10px;
 }
 
-.imagePreviewDiv img{
+.imagePreviewDiv img {
   height: 100%;
 }
