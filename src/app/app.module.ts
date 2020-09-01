@@ -10,11 +10,17 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HeaderComponent } from './home-page/header/header.component';
+import { ContentComponent } from './home-page/content/content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    HomePageComponent,
+    HeaderComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
