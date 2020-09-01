@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './home-page/header/header.component';
 import { ContentComponent } from './home-page/content/content.component';
+import { PostsComponent } from './home-page/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContentComponent } from './home-page/content/content.component';
     HomePageComponent,
     HeaderComponent,
     ContentComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
