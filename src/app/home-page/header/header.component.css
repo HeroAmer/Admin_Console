@@ -31,8 +31,8 @@ h1 {
   margin-right: 15px;
 }
 
-.view>a:link,
-a:visited {
+.view #view-link:link,
+#view-link:visited {
   border: 2px solid white;
   padding: 12px 20px;
   text-decoration: none;
@@ -45,8 +45,8 @@ a:visited {
 
 }
 
-.view>a:active,
-a:hover {
+.view #view-link:active,
+#view-link:hover {
   background-color: white;
   border: 2px solid white;
   padding: 15px 20px;
@@ -57,7 +57,7 @@ a:hover {
 
 }
 
-.view-link {
+#view-link {
   font-family: Poppins;
   font-weight: 500;
   font-style: normal;
