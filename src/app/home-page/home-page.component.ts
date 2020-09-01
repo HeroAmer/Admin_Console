@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  posts=[];
 
-  constructor() { }
+  constructor(public postService:PostService) { }
 
   ngOnInit(): void {
+   this.posts = this.postService.getPosts();
+   console.log(this.posts);
+  }
+
+  showPosts(){
+    console.log(this.posts);
   }
 
 }
