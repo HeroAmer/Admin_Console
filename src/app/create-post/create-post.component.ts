@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {PostService } from '../post.service';
+import { Post } from '../post.model';
 
 @Component({
   selector: 'app-create-post',
@@ -11,7 +13,7 @@ export class CreatePostComponent implements OnInit {
   imagePreview:string;
   posts=[];
 
-  constructor() { }
+  constructor(public postService:PostService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -37,13 +39,16 @@ export class CreatePostComponent implements OnInit {
     if(this.form.invalid){
       return;
     }else{
-      const post = {
-        image:'../assets/noPhoto.jpg',
-        title: this.form.value.title,
-        content: this.form.value.content
-      }
-      this.posts.push(post);
-      console.log(this.posts);
+      // const post = {
+      //   image:'../assets/noPhoto.jpg',
+      //   title: this.form.value.title,
+      //   content: this.form.value.content
+      // }
+      // this.posts.push(post);
+      // console.log(this.posts);
+
+      this.postService.addPost('../assets/noPhoto.jpg', this.form.value.title , this.form.value.content);
+
     }
 
     this.form.reset();
