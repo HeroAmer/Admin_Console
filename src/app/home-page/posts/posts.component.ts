@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostService } from '../../post.service';
 import { Subscription } from 'rxjs';
+
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -14,7 +16,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('nestoo');
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts();
     console.log(this.posts);
     this.postSubscription = this.postService
       .getPostsUpdatedListener()
