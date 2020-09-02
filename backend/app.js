@@ -1,8 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 ///adding body parser so that we can add posts on server
+mongoose.connect("mongodb+srv://admin:QYoqNEnrTgfKCbHv@adminconsole.rg6fm.mongodb.net/<dbname>?retryWrites=true&w=majority")
+.then(()=>{
+  console.log("Connected to database");
+})
+.catch((err)=>{
+  console.log(err);
+})
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended:false}));
 
