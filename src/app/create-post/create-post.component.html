@@ -10,6 +10,30 @@
     </button>
     <button class="toolbar-button">View posts</button>
   </mat-toolbar> -->
+  <mat-toolbar>
+    <h1>Check Posts</h1>
+    <span class="example-spacer"></span>
+    <div class="icons">
+      <div class="facebook">
+        <a href="https://www.facebook.com/tech387" target="_blank" class="example-icon"><img
+            src="../../../assets/icons/facebook.svg" alt="facebook" height="25px" width="25px" /></a>
+      </div>
+      <div class="instagram">
+        <a href="https://www.instagram.com/tech387/?hl=en" target="_blank" class="example-icon"><img
+            src="../../../assets/icons/instagram.svg" alt="instagram" height="25px" width="25px" /></a>
+      </div>
+      <div class="linkedin">
+        <a href="https://www.linkedin.com/company/tech-387/?originalSubdomain=ba" target="_blank"
+          class="example-icon"><img src="../../../assets/icons/linkedin.svg" alt="linkedin" height="25px"
+            width="25px" /></a>
+      </div>
+    </div>
+    <div class="view">
+      <!-- Ovdje dole ce ici router umjesto hrefa -->
+      <a routerLink="" id="view-link">View Posts</a>
+    </div>
+  </mat-toolbar>
+
   <mat-card class="create-post">
     <h2>NEW POST</h2>
     <form [formGroup]="form" (submit)="onSavePost()" div="example-form">
