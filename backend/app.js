@@ -8,13 +8,16 @@ const Post = require('./models/post');
 
 const app = express();
 ///adding body parser so that we can add posts on server
-mongoose.connect("mongodb+srv://admin:QYoqNEnrTgfKCbHv@adminconsole.rg6fm.mongodb.net/<dbname>?retryWrites=true&w=majority")
-.then(()=>{
-  console.log("Connected to database");
-})
-.catch((err)=>{
-  console.log(err);
-})
+mongoose.connect("mongodb+srv://admin:QYoqNEnrTgfKCbHv@adminconsole.rg6fm.mongodb.net/admin-console?retryWrites=true&w=majority", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  })
+  .then(() => {
+    console.log("Connected to database");
+  })
+  .catch((err) => {
+    console.log(err);
+  })
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended:false}));
 
@@ -30,7 +33,12 @@ app.use((req, res, next) => {
 
 ///endpoint for adding posts on server
 app.post("/api/posts", (req, res, next) => {
-  const post = req.body;
+  const post = new Post({
+    title: req.body.title,
+    image: req.body.image,
+    content: req.body.content
+  });
+  post.save();
   console.log(post);
   res.status(201).json({
     message: 'Post added succsesfully'

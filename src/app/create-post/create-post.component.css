@@ -5,10 +5,11 @@
   background-size: cover;
   height: 100%;
   width: 100vw;
+  position: absolute;
 }
 
 .create-post {
-  top: 45%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px;
@@ -32,6 +33,7 @@ input[type="file"] {
   margin: 0px 12px;
   background-color: rgb(141, 190, 67);
 }
+
 /*
 .example-spacer {
   flex: 1 1 auto;
@@ -67,10 +69,12 @@ h1 {
 .imagePreviewDiv img {
   height: 100%;
 }
+
 .mat-toolbar {
   background-color: transparent;
   color: white;
   width: 95%;
+  margin: 50px auto;
 }
 
 h1 {
@@ -131,4 +135,3 @@ h1 {
   font-style: normal;
   text-transform: none;
 }
-
