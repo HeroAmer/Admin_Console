@@ -48,23 +48,33 @@ app.post("/api/posts", (req, res, next) => {
 
 
 ///endpoint for fetching posts on frontend
-app.use("/api/posts", (req, res, next) => {
-  const posts = [{
-      id: '34523452345fdgs',
-      title: 'My first title',
-      content: 'Someee coool dummy content',
-      image: '../assets/noPhoto.jpg'
-    },
-    {
-      id: '3452344fd45fdgs',
-      title: 'My second post',
-      content: 'Someee coool dummy second content',
-      image: '../assets/noPhoto.jpg'
-    }
-  ]
-  res.status(200).json({
-    message: 'Posts fetched succsesfully',
-    posts: posts
+// app.use("/api/posts", (req, res, next) => {
+//   const posts = [{
+//       id: '34523452345fdgs',
+//       title: 'My first title',
+//       content: 'Someee coool dummy content',
+//       image: '../assets/noPhoto.jpg'
+//     },
+//     {
+//       id: '3452344fd45fdgs',
+//       title: 'My second post',
+//       content: 'Someee coool dummy second content',
+//       image: '../assets/noPhoto.jpg'
+//     }
+//   ]
+//   res.status(200).json({
+//     message: 'Posts fetched succsesfully',
+//     posts: posts
+//   });
+// });
+
+/// fetching data from DB
+app.get("/api/posts", (req, res, next) => {
+  Post.find().then(documents => {
+    res.status(200).json({
+      message: "Posts fetched successfully!",
+      posts: documents
+    });
   });
 });
 
