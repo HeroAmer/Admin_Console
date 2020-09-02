@@ -24,8 +24,8 @@
   margin-top: 20px;
 }
 
-.create>a:link,
-a:visited {
+#create-link:link,
+#create-link:visited {
   border: 2px solid white;
   /* padding: 12px 20px; */
   text-decoration: none;
@@ -39,8 +39,8 @@ a:visited {
 
 }
 
-.create>a:active,
-a:hover {
+#create-link:active,
+#create-link:hover {
   background-color: white;
   border: 2px solid white;
   padding: 1.3rem 2.171rem;
@@ -51,7 +51,7 @@ a:hover {
 
 }
 
-.create-link {
+#create-link {
   font-family: Poppins;
   font-weight: 500;
   font-style: normal;
