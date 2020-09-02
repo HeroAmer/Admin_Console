@@ -48,6 +48,7 @@ export class CreatePostComponent implements OnInit {
       // console.log(this.posts);
 
       this.postService.addPost('../assets/noPhoto.jpg', this.form.value.title , this.form.value.content);
+      this.form.reset();
 
     }
 
