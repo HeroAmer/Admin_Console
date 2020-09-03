@@ -1,4 +1,5 @@
 //QYoqNEnrTgfKCbHv
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -22,6 +23,7 @@ mongoose.connect("mongodb+srv://admin:QYoqNEnrTgfKCbHv@adminconsole.rg6fm.mongod
     console.log(err);
   })
 app.use(bodyParser.json());
+app.use("/images", express.static(path.join("backend/images")));
 // app.use(bodyParser.urlencoded({extended:false}));
 
 ///adding headers that are required for communication between servers, and also provide us with methods such as GET, POST..etc
