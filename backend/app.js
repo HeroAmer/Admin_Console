@@ -3,7 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const mongoose = require('mongoose');
-const Post = require('./models/post');
+
+///Routes
+const postsRoutes = require("./routes/posts");
+
 
 
 const app = express();
@@ -29,31 +32,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/api/posts", postsRoutes);
 
-
-///endpoint for adding posts on server
-app.post("/api/posts", (req, res, next) => {
-  const post = new Post({
-    title: req.body.title,
-    image: req.body.image,
-    content: req.body.content
-  });
-  post.save();
-  console.log(post);
-  res.status(201).json({
-    message: 'Post added succsesfully'
-  });
-});
-
-
-/// fetching data from DB
-app.get("/api/posts", (req, res, next) => {
-  Post.find().then(documents => {
-    res.status(200).json({
-      message: "Posts fetched successfully!",
-      posts: documents
-    });
-  });
-});
 
 module.exports = app;
