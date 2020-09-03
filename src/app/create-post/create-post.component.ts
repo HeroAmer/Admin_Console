@@ -49,11 +49,11 @@ export class CreatePostComponent implements OnInit {
       // console.log(this.posts);
 
       this.postService.addPost( this.form.value.title , this.form.value.content, this.form.value.image);
-      this.form.reset();
 
     }
 
-    this.form.reset();
+    this.form.markAsPristine();
+    this.form.markAsUntouched();
   }
 
 
