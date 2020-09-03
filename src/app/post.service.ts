@@ -22,6 +22,7 @@ export class PostService {
               image: post.image,
               content: post.content,
               id: post._id,
+              imagePath:post.imagePath
             };
           });
         })
@@ -36,14 +37,21 @@ export class PostService {
     return this.postsUpdated.asObservable();
   }
 
-  addPost(image: string, title: string, content: string) {
-    const post: Post = { id: null, image, title, content };
+  addPost(title: string, content: string, image:File) {
+    const postData = new FormData();
+    postData.append("title", title);
+    postData.append("content",content);
+    postData.append("image", image , title);
     this.http
-      .post('http://localhost:3000/api/posts', post)
-      .subscribe((message) => {
-        console.log(message);
+      .post<{message:string,post:Post}>('http://localhost:3000/api/posts', postData)
+      .subscribe(responseData =>{
+        const post:Post = {
+          id : responseData.post.id,
+          title: responseData.post.title,
+          content: responseData.post.content,
+          imagePath: responseData.post.imagePath
+        };
         this.posts.push(post);
-        console.log(post);
         this.postsUpdated.next([...this.posts]);
       });
   }

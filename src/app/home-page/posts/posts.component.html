@@ -7,7 +7,7 @@
   <mat-card-header>
     <mat-card-title>{{post.title}}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="{{post.image}}" alt="image">
+  <img mat-card-image [src]="post.imagePath" alt="post.title">
   <mat-card-content>
     <p>
       {{post.content}}

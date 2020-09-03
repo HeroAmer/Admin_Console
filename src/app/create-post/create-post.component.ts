@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService } from '../post.service';
 import { Post } from '../post.model';
+import {mimeType} from './mime-type.validator';
 
 @Component({
   selector: 'app-create-post',
@@ -19,7 +20,7 @@ export class CreatePostComponent implements OnInit {
     this.form = new FormGroup({
       title: new FormControl(null, {validators:[Validators.required]}),
       content : new FormControl(null, {validators:[Validators.required]}),
-      image : new FormControl(null, {validators:[Validators.required]})
+      image : new FormControl(null, {validators:[Validators.required], asyncValidators:[mimeType]})
     });
 
   }
@@ -47,7 +48,7 @@ export class CreatePostComponent implements OnInit {
       // this.posts.push(post);
       // console.log(this.posts);
 
-      this.postService.addPost('../assets/noPhoto.jpg', this.form.value.title , this.form.value.content);
+      this.postService.addPost( this.form.value.title , this.form.value.content, this.form.value.image);
       this.form.reset();
 
     }
