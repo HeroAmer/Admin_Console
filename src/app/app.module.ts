@@ -8,7 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { CreatePostComponent } from './create-post/create-post.component';
@@ -17,6 +18,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './home-page/header/header.component';
 import { ContentComponent } from './home-page/content/content.component';
 import { PostsComponent } from './home-page/posts/posts.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { HeaderPanelComponent } from './admin-panel/header-panel/header-panel.component';
+// import { DashboardComponent } from './admin-panel/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,9 @@ import { PostsComponent } from './home-page/posts/posts.component';
     HeaderComponent,
     ContentComponent,
     PostsComponent,
+    AdminPanelComponent,
+    HeaderPanelComponent,
+    // DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,8 @@ import { PostsComponent } from './home-page/posts/posts.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    // AngularFontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
