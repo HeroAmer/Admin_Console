@@ -43,12 +43,6 @@ export class PostService {
     return this.http.get<{_id:string,title:string,content:string,imagePath:string}>("http://localhost:3000/api/posts/"+ id);
   }
 
-  deletePost(postId:string){
-    this.http.delete("http://localhost:3000/api/posts/"+ postId)
-    .subscribe(()=>{
-      console.log("Deleted")
-    })
-  }
 
   updatePost(id: string, title: string, content: string, image: File | string) {
     let postData: Post | FormData;
@@ -102,5 +96,11 @@ export class PostService {
         this.postsUpdated.next([...this.posts]);
         this.router.navigate(["/"]);
       });
+  }
+  deletePost(postId:string){
+    this.http.delete("http://localhost:3000/api/posts/"+ postId)
+    .subscribe(()=>{
+      console.log("Deleted")
+    })
   }
 }

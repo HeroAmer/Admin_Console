@@ -3,13 +3,23 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+// import { AdminPanelComponent} from './admin-panel/admin-panel.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomePageComponent
+    path: 'admin-panel',
+    loadChildren: () =>
+      import('./admin-panel/admin-panel.module').then(
+        (m) => m.AdminPanelModule
+      ),
   },
   {
-    path: 'create', component: CreatePostComponent
+    path: '',
+    component: HomePageComponent,
+  },
+  {
+    path: 'create',
+    component: CreatePostComponent,
   },
   {
     path: 'edit/:postId', component: CreatePostComponent
@@ -17,8 +27,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-export const routingComponents = [CreatePostComponent]
+export const routingComponents = [CreatePostComponent];

@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostService } from '../../post.service';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -29,15 +28,17 @@ export class PostsComponent implements OnInit {
 
   }
 
-  onDelete(id:string){
-    this.postService.deletePost(id);
-    alert("Post deleted");
-  }
-
   ngOnDestroy() {
     this.postSubscription.unsubscribe();
   }
   showPosts() {
     console.log(this.posts);
+  }
+  onDelete(id: string) {
+    this.postService.deletePost(id);
+    alert('Post Deleted!');
+  }
+  refreshPage() {
+    window.location.reload();
   }
 }
