@@ -52,6 +52,19 @@ router.post("", multer({storage : storage}).single("image"), (req, res, next) =>
   })
 });
 
+router.get("/:id",multer({storage : storage}).single("image"), (req,res,next)=>{
+  console.log(req.body.file);
+  Post.findById(req.params.id).then(post =>{
+    console.log(req.body.file);
+    if(post){
+      res.status(200).json(post);
+    }else{
+      res.status(404).json({
+        message:'Post not found'
+      });
+    }
+  })
+})
 
 /// fetching data from DB
 router.get("", (req, res, next) => {
@@ -62,6 +75,60 @@ router.get("", (req, res, next) => {
     });
   });
 });
+
+// router.put("/:id",multer({storage : storage}).single("image"), (req, res, next)=>{
+//   let imagePath = req.body.imagePath;
+//   if(req.file){
+//     const url = req.protocol + +'://' + req.get("host");
+//     imagePath = url + "/images/" + req.file.filename;
+//   }
+//   post = new Post({
+//     _id : req.body.id,
+//     title : req.body.title,
+//     content: req.body.content
+//   })
+//   Post.findByIdAndUpdate({_id:req.params.id}).then(function(){
+//     Post.updateOne(post).then(result =>{
+//       console.log(result);
+//       res.status(200).json({
+//         message:'Post updated'
+//       });
+//     }).catch(err => console.log(err))
+//   })
+// });
+
+router.delete("/:id", (req,res,next) =>{
+  console.log(req.body.params);
+  Post.deleteOne({_id:req.params.id}).then(result =>{
+    console.log(result);
+    res.status(200).json({
+      message : 'Post deleted'
+    })
+  })
+})
+
+router.put(
+  "/:id",
+  multer({ storage: storage }).single("image"),
+  (req, res, next) => {
+    console.log(req.body.title);
+    let imagePath = req.body.imagePath;
+    if(req.file){
+      const url = req.protocol + "://" + req.get("host");
+      imagePath = url + "/images/" + req.file.filename
+    }
+    console.log('--------------');
+    const post= {
+      title: req.body.title,
+      content: req.body.content,
+      imagePath: imagePath
+    };
+    console.log(post);
+    Post.updateOne({ _id: req.params.id }, post).then(result => {
+      res.status(200).json({ message: "Update successful!" });
+    }).catch(err => console.log(err))
+  }
+);
 
 
 module.exports = router;

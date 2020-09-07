@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {PostService } from '../post.service';
 import { Post } from '../post.model';
 import {mimeType} from './mime-type.validator';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -12,11 +13,38 @@ import {mimeType} from './mime-type.validator';
 export class CreatePostComponent implements OnInit {
   form:FormGroup;
   imagePreview:string;
+  private mode = 'create';
+  private postId:string;
+  private post: Post;
   posts=[];
 
-  constructor(public postService:PostService) { }
+  constructor(public postService:PostService, public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((paramMap:ParamMap)=>{
+      if(paramMap.has('postId')){
+        this.mode = 'edit';
+        this.postId = paramMap.get('postId');
+        this.postService.getPost(this.postId).subscribe(postData =>{
+          this.post = {
+            id:postData._id,
+            title: postData.title,
+            content: postData.content,
+            imagePath: postData.imagePath
+          };
+          this.form.setValue({
+          'title':this.post.title,
+          'content':this.post.content,
+          'image':this.post.imagePath
+        })
+        });
+      }else{
+        this.mode = 'create';
+        this.postId = null;
+      }
+    });
+
+
     this.form = new FormGroup({
       title: new FormControl(null, {validators:[Validators.required]}),
       content : new FormControl(null, {validators:[Validators.required]}),
@@ -47,9 +75,11 @@ export class CreatePostComponent implements OnInit {
       // }
       // this.posts.push(post);
       // console.log(this.posts);
-
-      this.postService.addPost( this.form.value.title , this.form.value.content, this.form.value.image);
-
+      if(this.mode =='create'){
+        this.postService.addPost( this.form.value.title , this.form.value.content, this.form.value.image);
+      }else{
+        this.postService.updatePost(this.postId, this.form.value.title, this.form.value.content, this.form.value.image)
+      }
     }
 
     this.form.markAsPristine();

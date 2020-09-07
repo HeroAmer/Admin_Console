@@ -12,5 +12,7 @@
     <p>
       {{post.content}}
     </p>
+    <a [routerLink]="['/edit', post.id]">Edit</a>
+    <button (click)="onDelete(post.id)">Delete</button>
   </mat-card-content>
 </mat-card>
