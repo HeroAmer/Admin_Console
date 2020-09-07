@@ -128,7 +128,7 @@ router.put(
     console.log(post);
     Post.updateOne({ _id: req.params.id }, post).then(result => {
       res.status(200).json({ message: "Update successful!" });
-    }).catch(err => console.log(err))
+    }).catch(err => res.status(400).json({message:err}));
   }
 );
 
