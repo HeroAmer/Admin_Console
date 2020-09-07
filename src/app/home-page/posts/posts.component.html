@@ -13,4 +13,6 @@
       {{post.content}}
     </p>
   </mat-card-content>
+  <!-- <button (click)="onDelete(post.id)">Delete</button> -->
+  <a id="delete-post" routerLink="" routerLinkActive='active' (click)="onDelete(post.id); refreshPage()">Delete</a>
 </mat-card>
