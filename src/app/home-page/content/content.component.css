@@ -45,10 +45,9 @@
   border: 2px solid white;
   padding: 1.3rem 2.171rem;
   text-decoration: none;
-  color: black;
+  color: black !important;
   font-size: 15px;
   font-weight: 500;
-
 }
 
 #create-link {

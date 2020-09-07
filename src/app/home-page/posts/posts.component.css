@@ -6,3 +6,21 @@ mat-card {
   border: 1px solid grey;
   margin: 10px;
 }
+
+#delete-post {
+  border: 1px solid grey;
+  padding: 10px 15px;
+  background-color: rgb(255, 44, 44);
+  color: aliceblue;
+  text-decoration: none;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#delete-post:hover {
+  color: black;
+  font-weight: 500;
+  transition: all 0.5s;
+}
