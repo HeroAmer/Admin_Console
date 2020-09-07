@@ -1,5 +1,4 @@
-
-.posts-container{
+.posts-container {
   flex-wrap: wrap;
   display: flex;
   flex-direction: row;
@@ -7,7 +6,7 @@
 
 .example-card {
   width: 400px;
-  margin:30px;
+  margin: 30px;
 }
 
 mat-card {
@@ -15,17 +14,21 @@ mat-card {
   margin: 10px;
 }
 
+mat-card img {
+  max-height: 300px;
+}
 
-.buttons-container{
-  display:flex;
+.buttons-container {
+  display: flex;
   justify-content: space-around;
 }
+
 #delete-post {
   border: 1px solid grey;
   text-align: center;
   height: 20px;
   width: 60px;
-  padding:10px 15px;
+  padding: 10px 15px;
   background-color: rgb(255, 44, 44);
   color: aliceblue;
   text-decoration: none;
@@ -40,12 +43,13 @@ mat-card {
   font-weight: 500;
   transition: all 0.5s;
 }
+
 #edit-post {
   border: 1px solid grey;
   text-align: center;
   width: 60px;
   height: 20px;
-  padding:10px 15px;
+  padding: 10px 15px;
   background-color: rgb(185, 197, 75);
   color: aliceblue;
   text-decoration: none;
