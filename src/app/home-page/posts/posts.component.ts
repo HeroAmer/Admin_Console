@@ -19,9 +19,13 @@ export class PostsComponent implements OnInit {
     console.log(this.posts);
     this.postSubscription = this.postService
       .getPostsUpdatedListener()
-      .subscribe((posts) => {
+      .subscribe(posts => {
         this.posts = posts;
       });
+  }
+
+  onEditPost(){
+
   }
 
   ngOnDestroy() {
